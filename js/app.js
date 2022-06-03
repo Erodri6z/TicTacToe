@@ -5,21 +5,22 @@
 const squareEls = document.querySelectorAll('.square')
 const messageEl = document.querySelector('#message')
 
-console.log(squareEls)
+
 /*---------------------------- Variables (state) ----------------------------*/
 let board 
 let turn = 1
 let winner
 /*----------------------------- Event Listeners -----------------------------*/
-
-
-
+ squareEls.forEach((square) => {
+     square.addEventListener('click', handleClick)
+     console.log(square)
+    })
 /*-------------------------------- Functions --------------------------------*/
 
 
 init()
 function init(){
-    board = [1, null, 1, null, null, null, null, null, null]
+    board = [null, null, null, null, null, null, null, null, null]
     console.log('running, init?')
     turn = 1
     winner = null
@@ -27,14 +28,14 @@ function init(){
 }
 function render(){
     board.forEach(function (board,idx) {
-            if (board === 1) {
-                squareEls[idx].textContent = 'X'
-            }else if(board === -1) {
-                squareEls[idx].textContent = 'O'
-            }
-        })
-        console.log('running message')
-        if(winner === null){
+        if (board === 1) {
+            squareEls[idx].textContent = 'X'
+        }else if(board === -1) {
+            squareEls[idx].textContent = 'O'
+        }
+    })
+    console.log('running message')
+    if(winner === null){
         messageEl.textContent = `It's Player ${turn}'s turn!`
     }else if (winner === 'T') {
         messageEl.textContent = `Its A Tie`
@@ -54,14 +55,20 @@ const winningCombos = [
     [board[2], board[4], board[6]]
 ]
 
-// Step 3 - Upon loading, the game state should be initialized, and a function -
-//          should be called to render this game state-
+function handleClick(evt){
+    const sqIdx = (evt.target.id)
+    
+}
+
+
+// // Step 3 - Upon loading, the game state should be initialized, and a function -
+// //          should be called to render this game state-
 
 // a) Create a function called `init`.
 
 // b) Call this `init` function when the app loads.
 
-  // c) Set the `board` variable to an array containing nine `null`s to 
+// c) Set the `board` variable to an array containing nine `null`s to 
   //    represent empty squares.-
 
   // d) Set the `turn` to `1` - which will represent player X.-
