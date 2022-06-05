@@ -75,9 +75,14 @@ function getWinner(){
             if(sum === 3 ||sum ===-3 ){
                 winner = turn
                 return
+            }else if(board.includes(null) === false)  {
+                    winner = 'T'
+                    return
+                }else{
+                    winner = null
+                }
             }
         }
-    }
 
 //     //     // if(Math.abs(board[0] + board[1] + board[2] === 3)){
     //         //         //     console.log('winner')
