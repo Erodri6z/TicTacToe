@@ -4,7 +4,7 @@
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.square')
 const messageEl = document.querySelector('#message')
-
+const resetBtnEl = document.querySelector('#reset')
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board 
@@ -15,6 +15,7 @@ let winner
          square.addEventListener('click', handleClick)
          console.log(square)
         })
+resetBtnEl.addEventListener('click',init)
     /*-------------------------------- Functions --------------------------------*/
     
     
@@ -33,6 +34,8 @@ let winner
                 squareEls[idx].textContent = 'X'
             }else if(board === -1) {
                 squareEls[idx].textContent = 'O'
+            }else if(board === null){
+                squareEls[idx].textContent = ''
             }
         })
     console.log('running message')
@@ -40,8 +43,10 @@ let winner
         messageEl.textContent = `It's Player ${turn}'s turn!`
     }else if (winner === 'T') {
         messageEl.textContent = `Its A Tie`
-    }else{
+    }else if (winner === turn){
         messageEl.textContent = `Player ${winner * -1} won`
+    }else{
+        messageEl.textContent = ''
     }
 }
 
@@ -83,6 +88,9 @@ function getWinner(){
                 }
             }
         }
+
+
+
 
 //     //     // if(Math.abs(board[0] + board[1] + board[2] === 3)){
     //         //         //     console.log('winner')
