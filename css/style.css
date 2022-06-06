@@ -21,3 +21,10 @@ div {
   text-align: center;
   vertical-align: middle;
 }
+button {
+    max-width: 197px;
+    border-color:white ;
+    color:red;
+    background-color: black;
+    
+}
