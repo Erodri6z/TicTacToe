@@ -11,19 +11,19 @@ let board
 let turn 
 let winner
 /*----------------------------- Event Listeners -----------------------------*/
- squareEls.forEach((square) => {
-         square.addEventListener('click', handleClick)
+squareEls.forEach((square) => {
+        square.addEventListener('click', handleClick)
         })
 resetBtnEl.addEventListener('click',init)
     /*-------------------------------- Functions --------------------------------*/
     
     
- init()
- function init(){
-     board = [null, null, null, null, null, null, null, null, null]
-     turn = 1
-     winner = null
-     render()
+init()
+function init(){
+    board = [null, null, null, null, null, null, null, null, null]
+    turn = 1
+    winner = null
+    render()
     
     }
     function render(){
@@ -71,11 +71,11 @@ function getWinner(){
         [board[0], board[4], board[8]],
         [board[2], board[4], board[6]]
     ]
- for(let i = 0 ; i < winningCombos.length; i++){
-     let sum = (winningCombos[i][0] + winningCombos[i][1] + winningCombos[i][2])
-     if(sum === 3 ||sum ===-3 ){
-         winner = turn
-         return
+for(let i = 0 ; i < winningCombos.length; i++){
+    let sum = (winningCombos[i][0] + winningCombos[i][1] + winningCombos[i][2])
+    if(sum === 3 || sum ===-3 ){
+        winner = turn
+        return
         }else if(board.includes(null) === false)  {
             winner = 'T'
             return
