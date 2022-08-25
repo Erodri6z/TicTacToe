@@ -37,11 +37,19 @@ function init(){
             }
         })
     if(winner === null){
-        messageEl.textContent = `It's Player ${turn}'s turn!`
+        if(turn === 1){
+            messageEl.textContent = "It's X's turn"
+        }else if(turn === -1){
+            messageEl.textContent = "It's O's Turn"
+        }
     }else if (winner === 'T') {
         messageEl.textContent = `Its A Tie`
     }else if (winner === turn){
-        messageEl.textContent = `Player ${winner * -1} won`
+        if (winner === -1){
+            messageEl.textContent = "X Wins"
+        }else if (winner === 1){
+            messageEl.textContent = "O Wins"
+        }
     }else{
         messageEl.textContent = ''
     }
